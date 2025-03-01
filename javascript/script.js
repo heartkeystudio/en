@@ -22,8 +22,19 @@ function trocarTexto() {
     indice = (indice + 1) % mensagens.length;
 }
 
-// Aguarda o carregamento do DOM antes de iniciar
 document.addEventListener("DOMContentLoaded", function () {
+    // Mantém seu código original
     setInterval(trocarTexto, 6000); // Troca a cada 6 segundos
+
+    // Código para mudar a cor do header no scroll
+    window.addEventListener("scroll", function () {
+        let header = document.querySelector("header");
+        if (window.scrollY > 50) { 
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
 });
+
 

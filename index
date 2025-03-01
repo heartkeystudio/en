@@ -41,20 +41,14 @@
 
 <section id="games" class="games">
     <h2>Games</h2>
-    <p>Explore our released and in-production games:</p>
 
     <div class="game-list">
               <a href="https://heartkey.itch.io/freakhunter" class="game-card">
-                    <img src="images/lil-freak-hunter-thumb.jpg" alt="Lil Freak Hunter">
-                    <h3>Lil Freak Hunter</h3>
-                    <p>Let's explore the little limbo!</p>
-               </a>
+                    <img src="images/lil-freak-hunter-thumb.webp" alt="Lil Freak Hunter">
+              </a>
               <a href="https://heartkey.itch.io/freakhunter" class="game-card">
-                    <img src="images/freak-hunter-thumb.jpg" alt="Freak Hunter">
-                    <h3>Freak Hunter</h3>
-                    <p>Let's explore the limbo!</p>
-               </a>
-            </div>
+                    <img src="images/freak-hunter-thumb.webp" alt="Freak Hunter">
+              </a>
     </div>
 </section>
 

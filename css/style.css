@@ -19,7 +19,8 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro com transparência */
+    background-color: transparent; /* Começa transparente */
+    transition: background-color 0.3s ease-in-out;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -27,6 +28,9 @@ header {
     z-index: 1000; /* Mantém o header acima de outros elementos */
 }
 
+header.scrolled {
+    background-color: black; /* Fica preto ao rolar */
+}
 
 /* LOGO */
 header .logo {
@@ -148,6 +152,25 @@ nav ul li a:hover {
     color: #fff;
 }
 
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh; /* Reduz a altura da seção no mobile */
+    }
+
+    .hero video {
+        height: 50vh; /* Ajusta a altura do vídeo */
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Reduz o tamanho do título */
+    }
+
+    .hero p {
+        font-size: 1.2rem; /* Reduz o tamanho do parágrafo */
+    }
+}
+
+
 /* BOTÃO */
 .btn {
     background-color: #ff003c;
@@ -178,6 +201,12 @@ footer {
 
 /* JOGOS */
 
+.games h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+}
+
 .game-list {
     display: flex;
     flex-wrap: wrap; /* Permite que os cards se ajustem à largura da tela */
@@ -193,9 +222,8 @@ footer {
 .game-card {
     background: #000;
     border-radius: 10px;
-    width: 280px;
-    height: 320px;
-    margin: 15px;
+    width: 800px;
+    margin: 0px;
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -230,6 +258,12 @@ footer {
 
 .game-card .btn {
     margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .game-card {
+        width: 1058px;
+    }
 }
 
 /* SOBRE O TIME */
