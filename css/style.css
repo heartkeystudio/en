@@ -201,6 +201,38 @@ footer {
 
 /* JOGOS */
 
+.games {
+    /* Posição relativa para ancorar os botões */
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: hidden; /* Garante que nada vaze nas laterais */
+}
+
+.game-carousel-wrapper {
+    position: relative;
+    width: 90%; /* Define a largura da "janela" do carrossel */
+    margin: 0 auto; /* Centraliza a janela */
+}
+
+.game-carousel {
+    display: flex;
+    overflow-x: auto; /* Permite a rolagem horizontal */
+    scroll-behavior: smooth; /* Animação de rolagem suave */
+    
+    /* Mágica do Centramento: */
+    /* Define que o container deve ter 'snap points' */
+    scroll-snap-type: x mandatory; 
+
+    /* Esconde a barra de rolagem (opcional, mas mais bonito) */
+    -ms-overflow-style: none;  /* IE e Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.game-carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari e Opera */
+}
+
 .games h2 {
     display: flex;
     justify-content: center;
@@ -209,8 +241,9 @@ footer {
 
 .game-list {
     display: flex;
-    flex-wrap: wrap; /* Permite que os cards se ajustem à largura da tela */
-    justify-content: center; /* Centraliza os cards no container */
+    flex-wrap: nowrap; /* Impede que os itens quebrem a linha */
+    /* justify-content: center; */ /* REMOVA ou comente isso */
+    /* flex-wrap: wrap; */ /* REMOVA ou comente isso */
 }
 
 .game-list a {
@@ -231,6 +264,11 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     transition: 0.3s;
+    width: 560px; /* Mantém sua largura */
+    flex-shrink: 0; /* Impede que o card encolha */
+    /* Mágica do Centramento: */
+    /* Define que cada card deve alinhar ao centro do 'snap point' */
+    scroll-snap-align: center;
 }
 
 /* Adicione um efeito de hover para o card */
@@ -260,9 +298,52 @@ footer {
     margin-top: 10px;
 }
 
+/* Estilo para os botões de rolagem */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background-color: rgba(255, 0, 60, 0.8); /* Cor do seu site */
+}
+
+.scroll-btn.prev {
+    left: 10px; /* Ajuste a posição se necessário */
+}
+
+.scroll-btn.next {
+    right: 10px; /* Ajuste a posição se necessário */
+}
+
 @media (max-width: 768px) {
+    .game-carousel-wrapper {
+        width: 100%; /* Ocupa a largura total em telas pequenas */
+    }
+    
     .game-card {
-        width: 1058px;
+        /* Sua regra original para mobile estava 1058px, 
+          o que parece muito largo. 
+          Sugiro usar uma % ou um valor menor.
+        */
+        width: 90%; /* Faz o card ocupar 90% da tela */
+    }
+
+    .scroll-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
     }
 }
 
